@@ -20,4 +20,21 @@ function renderMenu(){const visible=activeCategory==="Все"?drinks:drinks.filt
 let toastTimer;function showDemoToast(){const t=document.getElementById("toast");t.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove("show"),1800)}
 function showPage(name){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));document.getElementById(`page-${name}`).classList.add("active");document.querySelectorAll(".nav-item").forEach(i=>i.classList.toggle("active",i.dataset.tab===name));window.scrollTo({top:0,behavior:"smooth"})}
 document.querySelectorAll(".nav-item").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.tab)));renderFilters();renderMenu();if(window.Telegram&&window.Telegram.WebApp){const tg=window.Telegram.WebApp;tg.ready();tg.expand()}
-</script></body></html>
+</script>
+
+<!-- Библиотека Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- Подключение к проекту -->
+<script>
+  const SUPABASE_URL = 'https://tcwtwwwlxzqgwbrrduub.supabase.co';
+
+  const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_jiqsYNz0NSVSfAf_-qBvmQ_z1URHxIJ';
+
+  const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+  );
+</script>
+
+</body></html>
